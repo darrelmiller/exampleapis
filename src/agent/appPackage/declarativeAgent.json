@@ -1,0 +1,24 @@
+{
+    "$schema": "https://aka.ms/json-schemas/copilot-extensions/v1.0/declarative-copilot.schema.json",
+    "version": "v1.0",
+    "name": "Agent Examples (v${{TEAMS_APP_VERSION}})",
+    "description": "Agent Examples has all kinds of examples for calling APIs",
+    "instructions": "You are an agent that invokes a range of different functions for evaluating what kinds of functions Copilot can call successfully.\nAlways use a function or tool to get information to response with. **DO NOT HALLUCINATE ANSWERS**.",
+    "conversation_starters": [
+        {
+            "text": "List all customers",
+            "title": "List all Customers"
+        }
+    ],
+    "actions": [
+        {
+            "id": "examplesapi",
+            "file": "examplesapi-apiplugin.json"
+        }
+    ],
+    "capabilities": [
+        {
+            "name": "WebSearch"
+        }
+    ]
+}

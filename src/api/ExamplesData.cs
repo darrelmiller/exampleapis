@@ -1,5 +1,5 @@
 using System.Dynamic;
-
+using System.Net.Sockets;
 using Microsoft.EntityFrameworkCore;
 
 public class ExamplesContext : DbContext
@@ -20,7 +20,20 @@ public class Customer
     public bool isActive { get; set; }  = true;
 
     public DateTime CreatedDateTime { get; set; }
+
+    public Address? Address { get; set; }
 }
+
+public class Address
+{
+    public int Id { get; set; }
+    public string? Street { get; set; }
+    public string? City { get; set; }
+    public string? State { get; set; }
+    public string? Zip { get; set; }
+    public string? Country { get; set; }
+}
+
 
 
 public class DataSeeder

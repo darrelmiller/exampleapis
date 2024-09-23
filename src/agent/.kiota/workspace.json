@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "clients": {},
+  "plugins": {
+    "examplesapi": {
+      "types": [
+        "APIPlugin"
+      ],
+      "authType": null,
+      "authReferenceId": null,
+      "descriptionLocation": "./.generated/openapi/examplesapi.json",
+      "includePatterns": [],
+      "excludePatterns": [],
+      "outputPath": "./.generated/plugins"
+    }
+  }
+}

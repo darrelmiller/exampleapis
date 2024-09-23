@@ -1,0 +1,77 @@
+openapi: 3.0.1
+info:
+  title: Examples API - Subset
+  description: API for ordering assets
+  version: 0.0.0
+  x-ai-description: 'Search for customers, and lots of other stuff'
+servers:
+  - url: https://0l7j96tl-5056.use.devtunnels.ms
+    description: Assets API
+paths:
+  /customers:
+    get:
+      description: List all available customers
+      operationId: GetCustomers
+      parameters:
+        - name: name
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                type: string
+      x-ai-reasoning-instructions:
+        - Invoke this tool to get a list of customers. Provide a name query parameter to filter the results.
+    post:
+      description: Create a customer
+      operationId: CreateCustomer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AgentExamples.Customer'
+        required: true
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentExamples.Customer'
+components:
+  schemas:
+    AgentExamples.Customer:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        isActive:
+          type: boolean
+        createdDateTime:
+          type: string
+          format: date-time
+        address:
+          $ref: '#/components/schemas/AgentExamples.Address'
+    AgentExamples.Address:
+      type: object
+      properties:
+        street:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip:
+          type: string
+        country:
+          type: string

@@ -1,4 +1,4 @@
-@api_HostAddress = http://localhost:5056
+@api_HostAddress = https://0l7j96tl-5056.use.devtunnels.ms
 
 GET {{api_HostAddress}}/customers?name=Northwind
 Accept: application/json

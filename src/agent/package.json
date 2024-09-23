@@ -1,0 +1,13 @@
+{
+  "name": "assets-agent",
+  "version": "0.1.0",
+  "type": "module",
+  "devDependencies": {
+    "@microsoft/typespec-copilot-skills": "file:../../assets/microsoft-typespec-copilot-skills-0.0.1-preview.1.tgz",
+    "@typespec/compiler": "latest",
+    "@typespec/http": "latest",
+    "@typespec/openapi3": "latest",
+    "@typespec/rest": "latest"
+  },
+  "private": true
+}

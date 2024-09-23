@@ -1,0 +1,42 @@
+{
+  "$schema": "https://aka.ms/json-schemas/copilot-extensions/v2.1/plugin.schema.json",
+  "schema_version": "v2.1",
+  "name_for_human": "Examples API",
+  "description_for_human": "API for ordering assets",
+  "description_for_model": "Search for customers, and lots of other stuff",
+  "contact_email": "publisher-email@example.com",
+  "namespace": "examplesapi",
+  "capabilities": {},
+  "functions": [
+    {
+      "name": "CreateCustomer",
+      "description": "Create a customer"
+    },
+    {
+      "name": "GetCustomers",
+      "description": "List all available customers",
+      "states": {
+        "reasoning": {
+          "instructions": [
+            "Invoke this tool to get a list of customers. Provide a name query parameter to filter the results."
+          ]
+        }
+      }
+    }
+  ],
+  "runtimes": [
+    {
+      "type": "OpenApi",
+      "auth": {
+        "type": "None"
+      },
+      "spec": {
+        "url": "examplesapi-openapi.yml"
+      },
+      "run_for_functions": [
+        "GetCustomers",
+        "CreateCustomer"
+      ]
+    }
+  ]
+}

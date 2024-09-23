@@ -1,0 +1,35 @@
+{
+  "applicationName": "application",
+  "apiDependencies": {
+    "openapi": {
+      "apiDescriptionUrl": "./.generated/openapi/openapi.json",
+      "apiDeploymentBaseUrl": "https://0l7j96tl-5056.use.devtunnels.ms/",
+      "requests": [
+        {
+          "method": "GET",
+          "uriTemplate": "customers"
+        }
+      ],
+      "extensions": {
+        "x-ms-kiota-hash": "A70B7CB1C5798A474D76AA5C54D6799F54BA96717B2A642FB24B555ED413F228"
+      }
+    },
+    "examplesapi": {
+      "apiDescriptionUrl": "./.generated/openapi/examplesapi.json",
+      "apiDeploymentBaseUrl": "https://0l7j96tl-5056.use.devtunnels.ms/",
+      "requests": [
+        {
+          "method": "GET",
+          "uriTemplate": "customers"
+        },
+        {
+          "method": "POST",
+          "uriTemplate": "customers"
+        }
+      ],
+      "extensions": {
+        "x-ms-kiota-hash": "ED70E63EAE9553DA91723F32CFCF5712E3B837E26BA216DE748C362C5879870F"
+      }
+    }
+  }
+}

@@ -46,6 +46,10 @@ public static class Operations {
     }
 
     public static IResult CreateCustomer(ExamplesContext dataContext, [FromBody]Customer customer) {
+
+        customer.Id = dataContext.Customers.Max(c => c.Id) + 1;
+        customer.CreatedDateTime = DateTime.Now;
+        
         dataContext.Customers.Add(customer);
         dataContext.SaveChanges();
         return Results.Created($"/customers/{customer.Id}", customer);
