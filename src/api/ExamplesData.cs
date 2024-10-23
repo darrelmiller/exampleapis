@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Dynamic;
 using System.Net.Sockets;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +11,12 @@ public class ExamplesContext : DbContext
     {
     }
     public DbSet<Customer> Customers { get; set; }
+    public DbSet<Address> Addresses { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder) {
+        modelBuilder.Entity<Customer>().HasOne(c => c.Address).WithMany().HasForeignKey(c => c.AddressId);
+        modelBuilder.Entity<Customer>().HasOne(c => c.BillingAddress).WithMany().HasForeignKey(c => c.BillingAddressId);
+    }
 
 }
  
@@ -21,11 +29,21 @@ public class Customer
 
     public DateTime CreatedDateTime { get; set; }
 
+    public int? AddressId { get; set; }
+
+    [ForeignKey("AddressId")]
     public Address? Address { get; set; }
+
+   
+    public int? BillingAddressId { get; set; }
+
+    [ForeignKey("BillingAddressId")]
+    public Address? BillingAddress { get; set; }
 }
 
 public class Address
 {
+    [Key]
     public int Id { get; set; }
     public string? Street { get; set; }
     public string? City { get; set; }

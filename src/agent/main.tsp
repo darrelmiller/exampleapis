@@ -44,7 +44,7 @@ List all available customers
 """,
             instructions: "Invoke this tool to get a list of customers. Provide a name query parameter to filter the results."
         })
-        @get op GetCustomers(@query name?: string): string;
+        @get op GetCustomers(@query name?: string, @header prefer?: string): string;
 
         /** Create a customer */
         @route("/customers")
@@ -61,6 +61,7 @@ List all available customers
         isActive?: boolean;
         createdDateTime?: utcDateTime;
         address?: Address;
+        billingAddress?: Address;
     }
     model Address {
         street?: string;

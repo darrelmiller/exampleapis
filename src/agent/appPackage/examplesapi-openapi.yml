@@ -19,6 +19,11 @@ paths:
           explode: false
           schema:
             type: string
+        - name: prefer
+          in: header
+          style: simple
+          schema:
+            type: string
       responses:
         '200':
           description: The request has succeeded.
@@ -61,6 +66,8 @@ components:
           type: string
           format: date-time
         address:
+          $ref: '#/components/schemas/AgentExamples.Address'
+        billingAddress:
           $ref: '#/components/schemas/AgentExamples.Address'
     AgentExamples.Address:
       type: object

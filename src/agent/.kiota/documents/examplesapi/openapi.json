@@ -21,6 +21,14 @@
               "type": "string"
             },
             "explode": false
+          },
+          {
+            "name": "prefer",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -110,6 +118,9 @@
             "format": "date-time"
           },
           "address": {
+            "$ref": "#/components/schemas/AgentExamples.Address"
+          },
+          "billingAddress": {
             "$ref": "#/components/schemas/AgentExamples.Address"
           }
         }

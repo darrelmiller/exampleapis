@@ -40,7 +40,10 @@ public static class Operations {
         if (name != null) {
             customers = dataContext.Customers.Where(c => c.Name.Contains(name)).ToList();
         } else {
-            customers = dataContext.Customers.ToList();
+            customers = dataContext.Customers
+                        .Include(c => c.Address)
+                        .Include(c => c.BillingAddress)
+                        .ToList();
         }
         return Results.Ok(customers);
     }
